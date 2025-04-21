@@ -191,7 +191,7 @@ ZMK_MACRO(leader_sft, bindings = <&sk LSHFT &leader>;)
 #define VOL_DOWN  &hmr RSHFT C_VOL_DN
 
 // Screenshot macro (e.g., for Windows: Win+Shift+S)
-ZMK_MACRO(screenshot_macro, bindings = <&kp LGUI &kp LS &kp LC &kp S>; wait-ms = <0>; tap-ms = <5>;)
+ZMK_MACRO(screenshot_macro, bindings = <&kp LGUI &kp LSHFT &kp S>; wait-ms = <0>; tap-ms = <5>;)
 
 
 /* Keymap */
