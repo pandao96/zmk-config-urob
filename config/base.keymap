@@ -24,7 +24,14 @@
 #define XXX &none
 #define ___ &trans
 
-
+macros {
+      screenclip: screenclip {
+          compatible = "zmk,behavior-macro";
+          #binding-cells = <0>;
+          bindings = <&kp LG(LS(S))>;
+          label = "SCREENCLIP";
+      };
+  };
 
 /* Global defaults */
 
@@ -212,7 +219,7 @@ ZMK_BASE_LAYER(Base,
 //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
     &kp TAB       &hml LGUI A   &hml LALT S   &hml LCTRL D  &hml LSHFT F     &kp G       ,   &kp H     &hmr RSHFT J  &hmr LCTRL K  &hmr LALT L   &hmr LGUI SQT     &kp DEL  ,
 //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-    &kp K_UNDO      &kp Z         &kp X         &kp C         &kp V         &kp B       ,   &kp N         &kp M      &comma_morph    &dot_morph     &qexcl      &kp C_MUTE  ,
+    &screenclip      &kp Z         &kp X         &kp C         &kp V         &kp B       ,   &kp N         &kp M      &comma_morph    &dot_morph     &qexcl      &kp C_MUTE  ,
 //╰─────────────┴─────────────┴─────────────┴─────────────┴─────────────┴─────────────┤ ├─────────────┴─────────────┴─────────────┴─────────────┴─────────────┴─────────────╯
                                                              SMART_NUM   &lt_spc NAV 0  , &lt FN RET    MAGIC_SHIFT
 //                                                        ╰─────────────┴─────────────╯ ╰─────────────┴─────────────╯
