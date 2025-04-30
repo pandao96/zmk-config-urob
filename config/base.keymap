@@ -198,7 +198,16 @@ ZMK_MACRO(screenshot_macro, bindings = <&kp LG(LS(S))>; wait-ms = <0>; tap-ms = 
 // Screenshot macro (e.g., for Windows: Win+Shift+S)
 //ZMK_MACRO(screenshot_macro, bindings = <&kp LGUI &kp LSHFT &kp S>; wait-ms = <0>; tap-ms = <5>;)
 
-
+/ {
+    behaviors {
+        hold_tap: hold_tap {
+            compatible = "zmk,behavior-hold-tap";
+            label = "HOLD_TAP";
+            flavor = "hold-preferred";
+            tapping-term-ms = <200>;
+        };
+    };
+};
 
 /* Keymap */
 
