@@ -26,11 +26,16 @@ manifest:
       url-base: https://github.com/urob
     - name: zmkfirmware
       url-base: https://github.com/zmkfirmware
+    - name: zaphod
+      url-base: https://github.com/petejohanson
 
   projects:
     - name: zmk
       remote: zmkfirmware
       import: app/west.yml
+    - name: zaphod-config
+      remote: zaphod
+      revision: main
 
     # ZMK modules
     - name: zmk-adaptive-key
