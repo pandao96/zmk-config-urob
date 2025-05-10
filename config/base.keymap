@@ -214,9 +214,9 @@ ZMK_BASE_LAYER(Base,
 //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
     &kp TAB          &kp A      &hml LALT S   &hml LCTRL D  &hml LSHFT F     &kp G       ,   &kp H     &hmr RSHFT J  &hmr LCTRL K  &hmr LALT L   &hmr LGUI SQT     &kp DEL  ,
 //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-    &screenshot_macro      &kp Z         &kp X         &kp C         &kp V         &kp B       ,   &kp N         &kp M      &comma_morph    &dot_morph     &qexcl      &kp C_MUTE  ,
+    &screenshot_macro &kp Z         &kp X         &kp C         &kp V         &kp B      ,   &kp N         &kp M      &comma_morph    &dot_morph     &qexcl      &kp C_MUTE  ,
 //╰─────────────┴─────────────┴─────────────┴─────────────┴─────────────┴─────────────┤ ├─────────────┴─────────────┴─────────────┴─────────────┴─────────────┴─────────────╯
-                                                             SMART_NUM   &lt FN RET,      &lt_spc NAV 0       MAGIC_SHIFT
+                                                             SMART_NUM  &lt_spc NAV 0  ,  &lt FN RET    MAGIC_SHIFT
 //                                                        ╰─────────────┴─────────────╯ ╰─────────────┴─────────────╯
 )
 
