@@ -6,3 +6,6 @@ firmware
 zephyr
 zmk
 draw/base.yaml
+
+# Local agent notes
+/FINDINGS.md

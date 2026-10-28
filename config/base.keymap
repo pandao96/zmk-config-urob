@@ -73,7 +73,9 @@ MAKE_HRM(hmr, &kp, &kp, KEYS_L THUMBS) // Right-hand HRMs.
 
 #include "combos.dtsi" // Must be sourced after HRM-combo hack.
 #include "leader.dtsi"
+#ifdef CONFIG_ZMK_POINTING
 #include "mouse.dtsi"
+#endif
 
 /* Nav cluster */
 
@@ -132,12 +134,14 @@ ZMK_HOLD_TAP(smart_num, bindings = <&mo>, <&num_dance>; flavor = "balanced";
 ZMK_TAP_DANCE(num_dance, bindings = <&num_word NUM>, <&sl NUM>;
               tapping-term-ms = <200>;)
 
+#ifdef CONFIG_ZMK_POINTING
 // Smart-mouse, requires tri-state module.
 ZMK_TRI_STATE(
     smart_mouse, bindings = <&tog MOUSE>, <&none>, <&tog MOUSE>;
     ignored-key-positions =
         <LT1 LT2 LH0 LH1 RT1 RT2 RT3 RM0 RM1 RM2 RM3 RM4 RB1 RB2 RB3 RH0 RH1>;
     ignored-layers = <MOUSE NAV FN>;)
+#endif
 
 /* Custom behaviors */
 
@@ -164,13 +168,6 @@ SIMPLE_MORPH(qexcl, SFT, &kp QMARK, &kp EXCL)
 // Tap: left/right parenthesis | Shft + tap: less-than/greater-than.
 SIMPLE_MORPH(lpar_lt, SFT, &kp LPAR, &kp LT)
 SIMPLE_MORPH(rpar_gt, SFT, &kp RPAR, &kp GT)
-
-// Tap: space | Shift + tap: dot -> space -> sticky shift | Hold: nav layer.
-ZMK_HOLD_TAP(lt_spc, bindings = <&mo>, <&spc_morph>; flavor = "balanced";
-             tapping-term-ms = <200>; quick-tap-ms = <QUICK_TAP_MS>;)
-SIMPLE_MORPH(spc_morph, SFT, &kp SPACE, &dot_spc)
-ZMK_MACRO(dot_spc, bindings = <&kp DOT &kp SPACE &sk LSHFT>; wait-ms = <0>;
-          tap-ms = <5>;)
 
 // Tap: backspace | Lshft + tap: delete | Rshft + tap: shift-delete.
 ZMK_MOD_MORPH(bs_del, bindings = <&kp BSPC>, <&kp DEL>;
@@ -216,7 +213,7 @@ ZMK_BASE_LAYER(Base,
 //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
     &screenshot_macro &kp Z         &kp X         &kp C         &kp V         &kp B      ,   &kp N         &kp M      &comma_morph    &dot_morph     &qexcl      &kp C_MUTE  ,
 //╰─────────────┴─────────────┴─────────────┴─────────────┴─────────────┴─────────────┤ ├─────────────┴─────────────┴─────────────┴─────────────┴─────────────┴─────────────╯
-//                                                            SMART_NUM    &lt FN NAV 0  ,  &lt_spc RET    MAGIC_SHIFT SMART_NUM
+                                                             SMART_NUM  &lt NAV RET  ,  &lt FN SPACE  MAGIC_SHIFT
 //                                                        ╰─────────────┴─────────────╯ ╰─────────────┴─────────────╯
 )
 
@@ -268,6 +265,7 @@ ZMK_BASE_LAYER(Sys,
 //                                          ╰─────────────┴─────────────╯ ╰─────────────┴─────────────╯
 )
 
+#ifdef CONFIG_ZMK_POINTING
 ZMK_BASE_LAYER(Mouse,
 //╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮ ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
     ___           ___           ___           ___           ___         ,   ___           &kp PG_UP     U_MS_U         &kp PG_DN    ___         ,
@@ -279,5 +277,7 @@ ZMK_BASE_LAYER(Mouse,
                                               ___           ___         ,   U_WH_U        U_WH_D
 //                                          ╰─────────────┴─────────────╯ ╰─────────────┴─────────────╯
 )
+
+#endif // CONFIG_ZMK_POINTING
 
 /* vim: set ft=c tw=146: */
